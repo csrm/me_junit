@@ -16,20 +16,20 @@ class SellerTest {
     
     // TODO - Milestone 4 - Uncomment these methods
     
-    // @Test
-    // public void testSellersList() throws FileNotFoundException {
-    //     // Given
-    //     File typesFile = new File("src/test/resources/sellers.txt");
-    //     scanner = new Scanner(typesFile);
+    @Test
+    public void testSellersList() throws FileNotFoundException {
+        // Given
+        File typesFile = new File("src/test/resources/sellers.txt");
+        scanner = new Scanner(typesFile);
 
-    //     // When
-    //     List<String> sellersList = Seller.readSellerList(scanner);
+        // When
+        List<String> sellersList = Seller.readSellerList(scanner);
 
-    //     // Then
-    //     assertEquals(3, sellersList.size());
+        // Then
+        assertEquals(3, sellersList.size());
 
-    //     scanner.close();
-    // }
+        // scanner.close();
+    }
 
     // @Test
     // public void testSellersLargeList() throws FileNotFoundException {
@@ -45,4 +45,8 @@ class SellerTest {
 
     //     scanner.close();
     // }
+    @AfterAll
+    public void cleanup() {
+        scanner.close();
+    }
 }

@@ -24,7 +24,7 @@ public class Seller {
         List<String> sellers = new ArrayList<>();
 
         while(scanner.hasNext()) {
-            String sellerName = scanner.next().trim();
+            String sellerName = scanner.nextLine().trim();
             sellers.add(sellerName);
         }
 

@@ -54,9 +54,7 @@ public class AdHandler {
 
         AdData adData = new AdData(description, type, seller, LocalDateTime.now());
 
-        List<AdData> list = new ArrayList<>();
-        list.add(adData);
-        this.allAdsList = list;
+        this.allAdsList.add(adData);
 
         // this.allAdsList.add(adData);
     }
@@ -74,34 +72,34 @@ public class AdHandler {
         }
     }
 
-    public boolean isValidMeetingTime(LocalTime timeToCheck) {
-        // * - For meetings hours: 10AM - 12PM, 2PM-3PM, 6PM-8PM
+    // public boolean isValidMeetingTime(LocalTime timeToCheck) {
+    //     // * - For meetings hours: 10AM - 12PM, 2PM-3PM, 6PM-8PM
 
-        if (timeToCheck.isAfter(LocalTime.of(10, 0)) && timeToCheck.isBefore(LocalTime.of(12, 0))) {
-            return true;
-        } else if (timeToCheck.isAfter(LocalTime.of(14, 0)) && timeToCheck.isBefore(LocalTime.of(15, 0))) {
-            return true;
-        } else if (timeToCheck.isAfter(LocalTime.of(18, 0)) && timeToCheck.isBefore(LocalTime.of(20, 0))) {
-            return true;
-        }
+    //     if (timeToCheck.isAfter(LocalTime.of(10, 0)) && timeToCheck.isBefore(LocalTime.of(12, 0))) {
+    //         return true;
+    //     } else if (timeToCheck.isAfter(LocalTime.of(14, 0)) && timeToCheck.isBefore(LocalTime.of(15, 0))) {
+    //         return true;
+    //     } else if (timeToCheck.isAfter(LocalTime.of(18, 0)) && timeToCheck.isBefore(LocalTime.of(20, 0))) {
+    //         return true;
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
     // TODO: To be uncommented in M2
     // Comment out isValidMeetingTime, and rename below method to isValidMeetingTime()
     
-    // public boolean isValidMeetingTimeRefactored(LocalTime timeToCheck) {
-    //     // * - For meetings hours: 10AM - 12PM, 2PM-3PM, 6PM-8PM
-    //     return isBetween(timeToCheck, LocalTime.of(10, 0), LocalTime.of(12, 0))
-    //         || isBetween(timeToCheck, LocalTime.of(14, 0), LocalTime.of(15, 0))
-    //         || isBetween(timeToCheck, LocalTime.of(18, 0), LocalTime.of(20, 0));
+    public boolean isValidMeetingTime(LocalTime timeToCheck) {
+        // * - For meetings hours: 10AM - 12PM, 2PM-3PM, 6PM-8PM
+        return ( isBetween(timeToCheck, LocalTime.of(10, 0), LocalTime.of(12, 0))
+            || isBetween(timeToCheck, LocalTime.of(14, 0), LocalTime.of(15, 0))
+            || isBetween(timeToCheck, LocalTime.of(18, 0), LocalTime.of(20, 0)) );
     
-    // }
+    }
 
-    // public boolean isBetween(LocalTime timeToCheck, LocalTime startTime, LocalTime endTime) {
-    //     return (timeToCheck.isBefore(startTime)) && timeToCheck.isBefore(endTime);
-    // }
+    public boolean isBetween(LocalTime timeToCheck, LocalTime startTime, LocalTime endTime) {
+        return (timeToCheck.isAfter(startTime)) && timeToCheck.isBefore(endTime);
+    }
 
 
     // TODO - Code to be checked in M5 - Don't use system specific code
